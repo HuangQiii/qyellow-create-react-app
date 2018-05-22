@@ -1,9 +1,5 @@
-// @remove-file-on-eject
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * 这个文件目的：把script命令写入package.json,复制template文件夹
  */
 'use strict';
 
@@ -113,7 +109,7 @@ module.exports = function(
     );
   }
 
-  // Copy the files for the user
+  // 复制template模板文件夹过去，到这里为止初始项目搭建完毕
   const templatePath = template
     ? path.resolve(originalDirectory, template)
     : path.join(ownPath, 'template');

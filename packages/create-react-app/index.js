@@ -4,7 +4,7 @@
  */
 'use strict';
 
-// 用来控制输出的颜色的库
+// 用来控制台输出的字体颜色和背景颜色的库
 var chalk = require('chalk');
 
 var currentNodeVersion = process.versions.node;
@@ -22,6 +22,7 @@ if (major < 4) {
         'Please update your version of Node.'
     )
   );
+  // js是否终止线程，默认为0，1为失败
   process.exit(1);
 }
 

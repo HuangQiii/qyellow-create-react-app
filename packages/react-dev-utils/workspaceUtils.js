@@ -1,14 +1,7 @@
-/**
- * Copyright (c) 2018-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const findPkg = require('find-pkg');
+const findPkg = require('find-pkg'); // 递归查找package.json
 const globby = require('globby');
 
 const findPkgs = (rootPath, globPatterns) => {
@@ -24,6 +17,8 @@ const findPkgs = (rootPath, globPatterns) => {
     .reduce(
       (pkgs, pattern) =>
         pkgs.concat(globby.sync(path.join(pattern, 'package.json'), globOpts)),
+        // globby.sync(patterns, [options])
+        // Returns an Array of matching paths.
       []
     )
     .map(f => path.dirname(path.normalize(f)));
