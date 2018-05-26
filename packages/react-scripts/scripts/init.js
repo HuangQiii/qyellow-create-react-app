@@ -3,9 +3,6 @@
  */
 'use strict';
 
-// Makes the script crash on unhandled rejections instead of silently
-// ignoring them. In the future, promise rejections that are not handled will
-// terminate the Node.js process with a non-zero exit code.
 process.on('unhandledRejection', err => {
   throw err;
 });
@@ -86,7 +83,7 @@ module.exports = function(
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
 
-  // Setup the script rules
+  // 写入命令
   appPackage.scripts = {
     start: 'react-scripts start',
     build: 'react-scripts build',
@@ -98,7 +95,7 @@ module.exports = function(
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
-    JSON.stringify(appPackage, null, 2) + os.EOL
+    JSON.stringify(appPackage, null, 2) + os.EOL // 换行符
   );
 
   const readmeExists = fs.existsSync(path.join(appPath, 'README.md'));
@@ -234,7 +231,7 @@ module.exports = function(
     console.log(
       chalk.yellow(
         'You had a `README.md` file, we renamed it to `README.old.md`'
-      )
+      )// ? where
     );
   }
   console.log();
