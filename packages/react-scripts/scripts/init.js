@@ -98,6 +98,8 @@ module.exports = function(
     JSON.stringify(appPackage, null, 2) + os.EOL // 换行符
   );
 
+  // 至此,package.json写入完毕
+
   const readmeExists = fs.existsSync(path.join(appPath, 'README.md'));
   if (readmeExists) {
     fs.renameSync(
@@ -122,6 +124,7 @@ module.exports = function(
   // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
   // See: https://github.com/npm/npm/issues/1862
   try {
+    // 来自fs-extra的方法，Moves a file or directory, even across devices.
     fs.moveSync(
       path.join(appPath, 'gitignore'),
       path.join(appPath, '.gitignore'),
